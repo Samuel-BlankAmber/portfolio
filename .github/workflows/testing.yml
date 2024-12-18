@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y nginx certbot python3-certbot-nginx
+          cd frontend
+          npm install
+
+      - name: Build
+        run: |
+          sudo cp nginx.conf /etc/nginx/sites-available/default
+          cd frontend
+          npm run build
+          sudo cp -r dist/* /var/www/html
+
+      - name: Obtain SSL certificates
+        run: |
+          if ! sudo certbot certificates | grep -q "Domains: samuelb.dev"; then
+            echo "Obtaining SSL certificates."
+            sudo certbot --nginx -d samuelb.dev --non-interactive --agree-tos -m {{ secrets.CERTBOT_EMAIL }};
+          else
+            echo "Certificate already exists.";
+          fi
+
+      - name: Start Nginx
+        run: |
+          if systemctl is-active --quiet nginx; then
+            echo "Reloading Nginx configuration."
+            sudo systemctl reload nginx
+          else
+            echo "Starting Nginx."
+            sudo systemctl start nginx
+          fi
+
+      - name: Check Nginx status
+        run: sudo systemctl status nginx
