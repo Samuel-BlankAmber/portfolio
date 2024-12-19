@@ -51,3 +51,10 @@ jobs:
 
       - name: Check Nginx status
         run: sudo systemctl status nginx
+
+      - name: Start challenge
+        run: |
+          cd challenge
+          sudo docker compose up --build -d
+          # Hack to get Nginx to serve the static frontend
+          sudo docker cp pattern-hijack:/app/backend/frontend-build /var/www
