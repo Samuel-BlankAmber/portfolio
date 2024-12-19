@@ -54,6 +54,5 @@ jobs:
 
       - name: Start challenge
         run: |
-          sudo apt-get install -y docker-compose-plugin
           cd challenge
           sudo docker compose up --build -d
