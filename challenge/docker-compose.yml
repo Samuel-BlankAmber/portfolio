@@ -10,7 +10,7 @@ services:
     environment:
       - FRONTEND_BUILD_PATH=frontend-build
     volumes:
-      - ./frontend-build:/app/frontend-build
+      - ./home/ubuntu/chall-frontend:/app/frontend-build
     restart: always
 
 volumes:
