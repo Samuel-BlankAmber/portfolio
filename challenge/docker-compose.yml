@@ -9,10 +9,9 @@ services:
       - 5000:5000
     environment:
       - FRONTEND_BUILD_PATH=frontend-build
+    volumes:
+      - ./frontend-build:/app/frontend-build
     restart: always
-    healthcheck:
-      test: ["CMD", "node", "/app/backend/healthcheck.js"]
-      interval: 300s
-      timeout: 10s
-      retries: 1
-      start_period: 10s
+
+volumes:
+  frontend-build:
