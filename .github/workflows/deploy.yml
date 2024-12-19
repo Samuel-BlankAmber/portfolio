@@ -18,8 +18,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt update
-          sudo apt install -y nginx certbot python3-certbot-nginx
+          sudo apt-get update
+          sudo apt-get install -y nginx certbot python3-certbot-nginx
           cd frontend
           npm install
 
