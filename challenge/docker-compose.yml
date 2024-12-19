@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    container_name: pattern-hijack
+    labels:
+    - "category=Injection"
+    - "challenge=Pattern Hijack"
+    ports:
+      - 5000:5000
+    environment:
+      - FRONTEND_BUILD_PATH=frontend-build
+    restart: always
+    healthcheck:
+      test: ["CMD", "node", "/app/backend/healthcheck.js"]
+      interval: 300s
+      timeout: 10s
+      retries: 1
+      start_period: 10s

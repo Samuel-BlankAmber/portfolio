@@ -1,0 +1,27 @@
+nav {
+  background-color: #5E1C25;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li button {
+  all: unset;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+nav ul li button:hover {
+  background-color: #330E12;
+}

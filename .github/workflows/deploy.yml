@@ -51,3 +51,9 @@ jobs:
 
       - name: Check Nginx status
         run: sudo systemctl status nginx
+
+      - name: Start challenge
+        run: |
+          sudo apt-get install -y docker-compose
+          cd challenge
+          docker-compose up --build -d
