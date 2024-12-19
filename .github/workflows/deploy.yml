@@ -34,7 +34,7 @@ jobs:
         run: |
           if ! sudo certbot certificates | grep -q "Domains: samuelb.dev"; then
             echo "Obtaining SSL certificates."
-            sudo certbot --nginx -d samuelb.dev --non-interactive --agree-tos -m {{ secrets.CERTBOT_EMAIL }};
+            sudo certbot --nginx -d samuelb.dev -d www.samuelb.dev --non-interactive --agree-tos -m {{ secrets.CERTBOT_EMAIL }};
           else
             echo "Certificate already exists.";
           fi
