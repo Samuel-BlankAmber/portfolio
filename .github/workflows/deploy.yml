@@ -39,6 +39,7 @@ jobs:
           set -e
           CHANGED_FILES=$(aws s3 sync frontend/dist s3://samuelb.dev --delete \
             | awk '{print $NF}' | sed 's|s3://samuelb.dev||' | tr '\n' ' ')
+          echo "CHANGED_FILES=${CHANGED_FILES}"
           echo "CHANGED_FILES=${CHANGED_FILES}" >> $GITHUB_ENV
 
       - name: Invalidate Changed Files in CloudFront
