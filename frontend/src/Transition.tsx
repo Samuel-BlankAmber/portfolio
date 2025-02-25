@@ -4,12 +4,12 @@ import MatrixEffect from "./MatrixEffect";
 import { useEffect, useState } from "react";
 
 export default function Transition() {
-  const [idCompletionStatus, setIdCompletionStatus] = useState({});
-  const [showText, setShowText] = useState(false);
+  const [idCompletionStatus, setIdCompletionStatus] = useState<Record<number, boolean>>({});
+  const [isTextVisible, setIsTextVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowText(true);
+      setIsTextVisible(true);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -17,7 +17,7 @@ export default function Transition() {
   return (
     <>
       <MatrixEffect />
-      {showText && (
+      {isTextVisible && (
         <div>
           <h1>
             <TypingEffect
@@ -31,7 +31,7 @@ export default function Transition() {
           </h1>
           <h2>
             <TypingEffect
-              text="this site appears to be under construction..."
+              text="looks like it's your first time visiting the site"
               delay={75}
               id={1}
               parentId={0}
@@ -40,21 +40,18 @@ export default function Transition() {
             />
           </h2>
           <h3>
-            <a
-              href="https://github.com/Samuel-BlankAmber/portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TypingEffect
-                text="it's also open source"
-                delay={100}
-                id={2}
-                parentId={1}
-                idCompletionStatus={idCompletionStatus}
-                setIdCompletionStatus={setIdCompletionStatus}
-              />
-            </a>
+            <TypingEffect
+              text="made by Samuel"
+              delay={100}
+              id={2}
+              parentId={1}
+              idCompletionStatus={idCompletionStatus}
+              setIdCompletionStatus={setIdCompletionStatus}
+            />
           </h3>
+          <button style={{ opacity: idCompletionStatus[2] ? 1 : 0 }}>
+            Enter
+          </button>
         </div>
       )}
     </>
