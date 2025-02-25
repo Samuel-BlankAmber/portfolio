@@ -1,0 +1,9 @@
+:root {
+  background-color: rgb(0, 0, 0);
+  font-family: Consolas, monospace;
+  color: rgb(0, 255, 0);
+}
+
+a {
+  text-decoration: none;
+}

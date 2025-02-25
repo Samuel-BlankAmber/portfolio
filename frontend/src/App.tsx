@@ -1,15 +1,6 @@
-import './App.css'
+import "./App.css";
+import Transition from "./Transition";
 
-function App() {
-  return (
-    <>
-      <h1>Samuel's Portfolio</h1>
-      <h2>Under construction...</h2>
-      <a href="https://github.com/Samuel-BlankAmber/portfolio" target="_blank" rel="noopener noreferrer">
-        This site is open source!
-      </a>
-    </>
-  )
+export default function App() {
+  return <Transition />;
 }
-
-export default App
