@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Transition.css";
 import TypingEffect from "./TypingEffect";
 import MatrixEffect from "./MatrixEffect";
-import { useEffect, useState } from "react";
 
 export default function Transition() {
+  const navigate = useNavigate();
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<number, boolean>>({});
   const [isTextVisible, setIsTextVisible] = useState(false);
 
@@ -13,6 +15,10 @@ export default function Transition() {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  function handleEnterButtonClick() {
+    navigate("/home");
+  }
 
   return (
     <>
@@ -49,7 +55,10 @@ export default function Transition() {
               setIdCompletionStatus={setIdCompletionStatus}
             />
           </h3>
-          <button style={{ opacity: idCompletionStatus[2] ? 1 : 0 }}>
+          <button
+            style={{ opacity: idCompletionStatus[2] ? 1 : 0 }}
+            onClick={handleEnterButtonClick}
+          >
             Enter
           </button>
         </div>
