@@ -32,7 +32,7 @@ export default function Transition() {
           <h2>
             <TypingEffect
               text="looks like it's your first time visiting the site"
-              delay={75}
+              delay={60}
               id={1}
               parentId={0}
               idCompletionStatus={idCompletionStatus}
