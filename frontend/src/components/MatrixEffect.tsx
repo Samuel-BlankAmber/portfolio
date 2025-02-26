@@ -4,11 +4,8 @@ export default function MatrixEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext("2d")!;
 
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
@@ -17,7 +14,6 @@ export default function MatrixEffect() {
     const drops = Array(columns).fill(0);
 
     function draw() {
-      if (!ctx) return;
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, width, height);
       ctx.fillStyle = "rgba(0, 255, 0, 0.25)";
