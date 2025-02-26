@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Transition.css";
-import TypingEffect from "./TypingEffect";
-import MatrixEffect from "./MatrixEffect";
+import "./Intro.css";
+import TypingEffect from "../components/TypingEffect";
+import MatrixEffect from "../components/MatrixEffect";
 
-export default function Transition() {
+export default function Intro() {
   const navigate = useNavigate();
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<number, boolean>>({});
   const [isTextVisible, setIsTextVisible] = useState(false);
