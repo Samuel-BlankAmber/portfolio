@@ -1,13 +1,13 @@
 import './TypingEffect.css';
 import { useEffect, useRef, useState } from 'react';
 
-interface TypingEffectProps {
+export interface TypingEffectProps {
   text: string;
   delay: number;
-  id: number;
-  parentId: number | null;
-  idCompletionStatus: Record<number, boolean>;
-  setIdCompletionStatus: React.Dispatch<React.SetStateAction<Record<number, boolean>>>;
+  id: string;
+  parentId: string | null;
+  idCompletionStatus: Record<string, boolean>;
+  setIdCompletionStatus: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
 }
 
 export default function TypingEffect({ text, delay, id, parentId, idCompletionStatus, setIdCompletionStatus }: TypingEffectProps) {
@@ -15,7 +15,11 @@ export default function TypingEffect({ text, delay, id, parentId, idCompletionSt
   const effectStarted = useRef(false);
 
   useEffect(() => {
-    if (parentId !== null && !idCompletionStatus[parentId] || idCompletionStatus[id]) {
+    if (parentId !== null && !idCompletionStatus[parentId]) {
+      return;
+    }
+    if (idCompletionStatus[id]) {
+      setDisplayedText(text);
       return;
     }
     if (effectStarted.current) {

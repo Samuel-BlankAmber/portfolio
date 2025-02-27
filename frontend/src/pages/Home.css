@@ -2,4 +2,56 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+}
+
+nav {
+  padding: 1rem;
+  box-shadow: 0 0 10px rgb(0, 255, 0);
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:link, a:visited {
+  color: inherit;
+}
+
+.basic-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.basic-info-divider {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-info {
+  font-size: x-large;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
 }

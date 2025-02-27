@@ -6,7 +6,7 @@ import MatrixEffect from "../components/MatrixEffect";
 
 export default function Intro() {
   const navigate = useNavigate();
-  const [idCompletionStatus, setIdCompletionStatus] = useState<Record<number, boolean>>({});
+  const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
   const [isTextVisible, setIsTextVisible] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
@@ -37,7 +37,7 @@ export default function Intro() {
             <TypingEffect
               text="welcome"
               delay={200}
-              id={0}
+              id={"welcome"}
               parentId={null}
               idCompletionStatus={idCompletionStatus}
               setIdCompletionStatus={setIdCompletionStatus}
@@ -47,8 +47,8 @@ export default function Intro() {
             <TypingEffect
               text="looks like it's your first time visiting my site"
               delay={60}
-              id={1}
-              parentId={0}
+              id={"first-time"}
+              parentId={"welcome"}
               idCompletionStatus={idCompletionStatus}
               setIdCompletionStatus={setIdCompletionStatus}
             />
@@ -57,14 +57,14 @@ export default function Intro() {
             <TypingEffect
               text="made by Samuel"
               delay={100}
-              id={2}
-              parentId={1}
+              id={"credits"}
+              parentId={"first-time"}
               idCompletionStatus={idCompletionStatus}
               setIdCompletionStatus={setIdCompletionStatus}
             />
           </h3>
           <button
-            style={{ opacity: idCompletionStatus[2] ? 1 : 0 }}
+            style={{ opacity: idCompletionStatus["credits"] ? 1 : 0 }}
             onClick={handleEnter}
           >
             Enter
