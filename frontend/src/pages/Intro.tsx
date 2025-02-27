@@ -8,23 +8,31 @@ export default function Intro() {
   const navigate = useNavigate();
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<number, boolean>>({});
   const [isTextVisible, setIsTextVisible] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const textVisibleTimer = setTimeout(() => {
       setIsTextVisible(true);
     }, 1000);
-    return () => clearTimeout(timer);
+    const enterTimer = setTimeout(handleEnter, 10_000);
+    return () => {
+      clearTimeout(textVisibleTimer);
+      clearTimeout(enterTimer);
+    }
   }, []);
 
-  function handleEnterButtonClick() {
-    navigate("/home");
+  function handleEnter() {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      navigate("/home", { state: { fromIntro: true } });
+    }, 500);
   }
 
   return (
-    <>
+    <div className={isFadingOut ? "fade-out" : ""}>
       <MatrixEffect />
       {isTextVisible && (
-        <div>
+        <div className="text-container">
           <h1>
             <TypingEffect
               text="welcome"
@@ -57,12 +65,12 @@ export default function Intro() {
           </h3>
           <button
             style={{ opacity: idCompletionStatus[2] ? 1 : 0 }}
-            onClick={handleEnterButtonClick}
+            onClick={handleEnter}
           >
             Enter
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 }
