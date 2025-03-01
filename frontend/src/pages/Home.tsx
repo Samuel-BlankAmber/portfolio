@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Home() {
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
@@ -34,6 +35,22 @@ export default function Home() {
             />
           </p>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0 m-4 flex space-x-4">
+        <a
+          href="https://www.linkedin.com/in/samuel-bhuiyan-532826248/"
+          target="_blank"
+          rel="noopener"
+        >
+          <FaLinkedin size={30} />
+        </a>
+        <a
+          href="https://github.com/your-github-username"
+          target="_blank"
+          rel="noopener"
+        >
+          <FaGithub size={30} />
+        </a>
       </div>
       <div className="flex flex-col items-center justify-center min-h-screen text-black bg-gray-500">
         <div className="content-box p-8 rounded-xl shadow-lg text-center">
