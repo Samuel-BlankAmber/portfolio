@@ -4,6 +4,10 @@ import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
+const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
+const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
+const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
+
 export default function Home() {
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
 
@@ -22,7 +26,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold">
             Hey, I'm&nbsp;
             <a
-              href="https://www.linkedin.com/in/samuel-bhuiyan-532826248/"
+              href={LINKEDIN_URL}
               className="clickable-text"
               target="_blank"
               rel="noopener"
@@ -45,7 +49,7 @@ export default function Home() {
         <p className="my-4 text-2xl font-semibold">
           This site is&nbsp;
           <a
-            href="https://github.com/Samuel-BlankAmber/portfolio"
+            href={GITHUB_REPO_URL}
             className="clickable-text"
             target="_blank"
             rel="noopener"
@@ -66,7 +70,7 @@ export default function Home() {
           <FaLinkedin size={30} />
         </a>
         <a
-          href="https://github.com/your-github-username"
+          href={GITHUB_PROFILE_URL}
           target="_blank"
           rel="noopener"
         >
