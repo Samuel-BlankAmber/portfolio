@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+.logo:hover {
+  background: linear-gradient(90deg, #007BFF, #00D4FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .intro-box {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

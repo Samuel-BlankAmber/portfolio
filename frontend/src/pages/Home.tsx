@@ -8,6 +8,27 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
 
+function NavBar() {
+  return (
+    <nav className="fixed top-0 left-0 w-full backdrop-blur-md p-4 flex justify-between items-center shadow-md z-50">
+      <div className="flex items-center space-x-2">
+        <a href="#" className="logo text-2xl font-bold">SB</a>
+      </div>
+      <ul className="flex space-x-6">
+        <li>
+          <a href="#aboutme" className="hover:text-blue-500 transition-colors duration-300">About Me</a>
+        </li>
+        <li>
+          <a href="#projects" className="hover:text-blue-500 transition-colors duration-300">Projects</a>
+        </li>
+        <li>
+          <a href="#contact" className="hover:text-blue-500 transition-colors duration-300">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
 function IntroSection() {
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
 
@@ -98,6 +119,7 @@ export default function Home() {
   return (
     <div>
       <TrianglifyBackground />
+      <NavBar />
       <IntroSection />
       <SocialMediaLinks />
       <AboutMeSection />
