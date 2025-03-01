@@ -9,7 +9,7 @@ export default function HomeNew() {
   return (
     <div>
       <TrianglifyBackground />
-      <div className="flex flex-col items-center justify-center min-h-screen text-black">
+      <div className="flex flex-col items-center justify-start min-h-screen text-black pt-[25vh]">
         <div className="intro-box bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
           <h1 className="text-4xl font-bold">
             Hey, I'm <span className="text-highlight">Samuel</span>.
