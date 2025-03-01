@@ -7,6 +7,12 @@
   -webkit-text-fill-color: transparent;
 }
 
+@media (min-height: 400px) {
+  .navbar {
+    backdrop-filter: blur(var(--blur-md))
+  }
+}
+
 .mobile-navbar {
   background: linear-gradient(135deg, #00D4FF, #007BFF);
 }
