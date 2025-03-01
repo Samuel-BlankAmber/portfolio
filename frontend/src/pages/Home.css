@@ -7,6 +7,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.mobile-navbar {
+  background: linear-gradient(135deg, #00D4FF, #007BFF);
+}
+
 .intro-box {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

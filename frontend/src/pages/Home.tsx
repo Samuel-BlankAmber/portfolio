@@ -2,19 +2,58 @@ import { useState } from "react";
 import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
 
+interface MobileNavBarProps {
+  isOpen: boolean;
+  toggleMobileNav: () => void;
+}
+
+function MobileNavBar({ isOpen, toggleMobileNav }: MobileNavBarProps) {
+  return (
+    <div className={`mobile-navbar fixed top-0 right-0 w-screen h-screen z-50 transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className="flex justify-end p-4">
+        <button onClick={toggleMobileNav} className="text-2xl">
+          <FaTimes />
+        </button>
+      </div>
+      <ul className="flex flex-col items-center space-y-6 mt-10">
+        <li>
+          <a href="#aboutme" onClick={toggleMobileNav}>About Me</a>
+        </li>
+        <li>
+          <a href="#projects" onClick={toggleMobileNav}>Projects</a>
+        </li>
+        <li>
+          <a href="#contact" onClick={toggleMobileNav}>Contact</a>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 function NavBar() {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  function toggleMobileNav() {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  }
+
   return (
     <nav className="fixed top-0 left-0 w-full backdrop-blur-md p-4 flex justify-between items-center shadow-md z-50">
       <div className="flex items-center space-x-2">
         <a href="#" className="logo text-2xl font-bold">SB</a>
       </div>
-      <ul className="flex space-x-6">
+      <div className="md:hidden">
+        <button onClick={toggleMobileNav} className="text-2xl">
+          <FaBars />
+        </button>
+      </div>
+      <ul className="hidden md:flex space-x-6">
         <li>
           <a href="#aboutme" className="hover:text-blue-500 transition-colors duration-300">About Me</a>
         </li>
@@ -25,6 +64,7 @@ function NavBar() {
           <a href="#contact" className="hover:text-blue-500 transition-colors duration-300">Contact</a>
         </li>
       </ul>
+      <MobileNavBar isOpen={isMobileNavOpen} toggleMobileNav={toggleMobileNav} />
     </nav>
   );
 }
@@ -40,7 +80,7 @@ function IntroSection() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-dvh text-black">
+    <div className="flex flex-col items-center justify-center h-dvh text-black">
       <div className="intro-box bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
         <h1 className="text-4xl font-bold">
           Hey, I'm&nbsp;
@@ -106,7 +146,7 @@ function SocialMediaLinks() {
 
 function AboutMeSection() {
   return (
-    <div id="aboutme" className="flex flex-col items-center justify-center min-h-screen text-black bg-white">
+    <div id="aboutme" className="flex flex-col items-center justify-center h-dvh text-black bg-white">
       <div className="content-box p-8 rounded-xl shadow-lg text-center">
         <h2 className="text-3xl font-bold">About me</h2>
         <p className="text-xl mt-4">Placeholder</p>
