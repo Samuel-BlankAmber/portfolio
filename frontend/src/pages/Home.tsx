@@ -35,6 +35,17 @@ export default function Home() {
             />
           </p>
         </div>
+        <p className="mt-4 text-2xl font-semibold">
+          This site is&nbsp;
+          <a
+            href="https://github.com/Samuel-BlankAmber/portfolio"
+            className="clickable-text"
+            target="_blank"
+            rel="noopener"
+          >
+            open source
+          </a>
+        </p>
       </div>
       <div className="absolute bottom-0 left-0 m-4 flex space-x-4">
         <a
