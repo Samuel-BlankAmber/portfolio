@@ -7,6 +7,13 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 export default function Home() {
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <div>
       <TrianglifyBackground />
@@ -35,7 +42,7 @@ export default function Home() {
             />
           </p>
         </div>
-        <p className="mt-4 text-2xl font-semibold">
+        <p className="my-4 text-2xl font-semibold">
           This site is&nbsp;
           <a
             href="https://github.com/Samuel-BlankAmber/portfolio"
@@ -46,6 +53,9 @@ export default function Home() {
             open source
           </a>
         </p>
+        <button onClick={() => scrollToSection("aboutme")}>
+          Learn More
+        </button>
       </div>
       <div className="absolute bottom-0 left-0 m-4 flex space-x-4">
         <a
@@ -63,10 +73,10 @@ export default function Home() {
           <FaGithub size={30} />
         </a>
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen text-black bg-gray-500">
+      <div id="aboutme" className="flex flex-col items-center justify-center min-h-screen text-black bg-white">
         <div className="content-box p-8 rounded-xl shadow-lg text-center">
-          <h2 className="text-3xl font-bold">Placeholder title</h2>
-          <p className="text-xl mt-4">More stuff here.</p>
+          <h2 className="text-3xl font-bold">About me</h2>
+          <p className="text-xl mt-4">Placeholder</p>
         </div>
       </div>
     </div>
