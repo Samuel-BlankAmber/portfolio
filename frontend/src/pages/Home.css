@@ -9,13 +9,13 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.text-highlight {
+.clickable-text {
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-.text-highlight:hover {
+.clickable-text:hover {
   color: #64ffda;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
 }
