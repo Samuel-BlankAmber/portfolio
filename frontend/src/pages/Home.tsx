@@ -3,7 +3,7 @@ import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
 
-export default function HomeNew() {
+export default function Home() {
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
 
   return (
