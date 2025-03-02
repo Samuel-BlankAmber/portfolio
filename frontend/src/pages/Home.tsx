@@ -80,7 +80,7 @@ function IntroSection() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-dvh text-black">
+    <section className="flex flex-col items-center justify-center h-dvh text-black">
       <div className="intro-box bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
         <h1 className="text-4xl font-bold">
           Hey, I'm&nbsp;
@@ -119,7 +119,7 @@ function IntroSection() {
       <button onClick={() => scrollToSection("aboutme")}>
         Learn More
       </button>
-    </div>
+    </section>
   );
 }
 
@@ -146,12 +146,48 @@ function SocialMediaLinks() {
 
 function AboutMeSection() {
   return (
-    <div id="aboutme" className="flex flex-col items-center justify-center h-dvh text-black bg-white">
-      <div className="content-box p-8 rounded-xl shadow-lg text-center">
-        <h2 className="text-3xl font-bold">About me</h2>
-        <p className="text-xl mt-4">Placeholder</p>
+    <section id="aboutme" className="flex flex-col items-center justify-center gap-6 min-h-dvh pt-24 px-8 md:px-16 lg:px-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="flex flex-col items-center text-center">
+          <img src="https://picsum.photos/200" alt="Profile Picture" className="rounded-full shadow-lg border-4 mb-4"></img>
+          <h1 className="text-4xl font-bold">Samuel</h1>
+          <p className="text-lg mt-2 max-w-md">
+            Welcome!
+            I'm a software engineer from the UK passionate about building (breaking) things and learning new technologies.
+            Here, you'll find a collection of my projects, writeups, and other fun stuff.
+            I'm always looking for opportunities to grow, so feel free to reach out!
+          </p>
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <h2 className="text-3xl font-bold mb-4">Featured Work</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-col items-center bg-white p-5 rounded-xl shadow-lg w-40">
+              <img src="https://picsum.photos/100" className="rounded-lg shadow-lg mb-2"></img>
+              <h3 className="font-semibold">Project</h3>
+              <p className="text-sm text-gray-600">Placeholder</p>
+              <a href="#" className="text-blue-500 font-medium mt-2 hover:underline">View</a>
+            </div>
+            <div className="flex flex-col items-center bg-white p-5 rounded-xl shadow-lg w-40">
+              <img src="https://picsum.photos/100" className="rounded-lg shadow-lg mb-2"></img>
+              <h3 className="font-semibold">Writeup</h3>
+              <p className="text-sm text-gray-600">Placeholder</p>
+              <a href="#" className="text-blue-500 font-medium mt-2 hover:underline">View</a>
+            </div>
+          </div>
+          <p className="mt-4 text-gray-700">Check out more of my projects and writeups!</p>
+        </div>
       </div>
-    </div>
+      <div className="flex flex-col items-center text-center mb-6">
+        <h2 className="text-3xl font-bold mb-4">Favourite Technologies</h2>
+        <div className="flex justify-center space-x-6">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-12 h-12"></img>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-12 h-12"></img>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="w-12 h-12"></img>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-12 h-12"></img>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-12 h-12"></img>
+        </div>
+      </div>
+    </section>
   );
 }
 
