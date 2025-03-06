@@ -39,7 +39,7 @@ function MobileNavBar({ isOpen, toggleMobileNav }: MobileNavBarProps) {
       </div>
       <ul className="flex flex-col items-center space-y-6 mt-10">
         {navLinks.map((link) => (
-          <li>
+          <li key={link.href}>
             <a href={link.href} onClick={toggleMobileNav}>{link.text}</a>
           </li>
         ))}
@@ -67,7 +67,7 @@ function NavBar() {
       </div>
       <ul className="hidden md:flex space-x-6">
         {navLinks.map((link) => (
-          <li>
+          <li key={link.href}>
             <a href={link.href} className="hover:text-blue-500 transition-colors duration-300">{link.text}</a>
           </li>
         ))}
