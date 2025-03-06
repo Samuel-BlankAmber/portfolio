@@ -164,12 +164,21 @@ function AboutMeSection() {
           </div>
         </div>
         <div className="flex flex-col items-center text-center">
-          <h2 className="text-3xl font-bold mb-4">Featured Work</h2>
-          <div className="flex flex-col items-center bg-white p-5 rounded-xl shadow-lg">
-            <img src={cryptoSongLogo} alt="CryptoSong Logo" className="mb-2 drop-shadow-lg w-50"></img>
-            <h3 className="font-semibold text-xl">CryptoSong</h3>
-            <p className="text-sm text-gray-600 mb-2">An app that encrypts data using music</p>
-            <a href="#" className="text-blue-500 font-medium hover:underline">View</a>
+          <h2 className="text-4xl font-bold mb-6">Featured Work</h2>
+          <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-xl transition-transform hover:scale-105 hover:shadow-2xl">
+            <img
+              src={cryptoSongLogo}
+              alt="CryptoSong Logo"
+              className="mb-4 drop-shadow-xl w-32 h-32"
+            />
+            <h3 className="font-bold text-2xl text-gray-800">CryptoSong</h3>
+            <p className="text-sm text-gray-500 mb-4 px-4">An app that encrypts data using music.</p>
+            <a
+              href="#"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
+            >
+              View Project
+            </a>
           </div>
         </div>
       </div>
