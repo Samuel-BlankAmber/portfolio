@@ -3,11 +3,20 @@ import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
 import cryptoSongLogo from '../assets/cryptosong.png';
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
+
+function scrollToSection(sectionId: string) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+    history.pushState(null, "", `#${sectionId}`);
+  }
+}
 
 interface MobileNavBarProps {
   isOpen: boolean;
@@ -73,13 +82,6 @@ function NavBar() {
 function IntroSection() {
   const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
 
-  function scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
   return (
     <section className="flex flex-col items-center justify-center h-dvh text-black">
       <div className="intro-box bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
@@ -117,7 +119,7 @@ function IntroSection() {
           open source
         </a>
       </p>
-      <button onClick={() => scrollToSection("aboutme")}>
+      <button onClick={() => scrollToSection("overview")} className="styled-button">
         Learn More
       </button>
     </section>
@@ -145,53 +147,87 @@ function SocialMediaLinks() {
   );
 }
 
-function AboutMeSection() {
+function OverviewSection() {
   return (
-    <section id="aboutme" className="flex flex-col items-center justify-center gap-6 min-h-dvh pt-24 md:pt-18 px-8 md:px-16 lg:px-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="flex flex-col items-center text-center">
-          <img src="https://picsum.photos/200" alt="Profile Picture" className="rounded-full shadow-lg border-4 mb-4"></img>
-          <h1 className="text-4xl font-bold">Samuel</h1>
-          <p className="text-lg mt-2 max-w-md">
-            Welcome!
+    <section id="overview" className="flex flex-col items-center min-h-dvh p-10">
+      <div className="flex-1 flex flex-col md:flex-row items-center justify-between text-center gap-10">
+        <div className="flex-1 flex flex-col">
+          <h1 className="text-4xl font-bold mt-12 md:mt-0">Welcome!</h1>
+          <p className="text-xl mt-4">
             I'm a software engineer from the UK passionate about building (breaking) things and learning new technologies.
+            <br />
             Here, you'll find a collection of my projects, writeups, and other fun stuff.
             I'm always looking for opportunities to grow, so feel free to reach out!
           </p>
-          <div className="flex space-x-4">
-            <a href="https://www.linkedin.com/in/samuel-bhuiyan-532826248" target="_blank" rel="noopener noreferrer" className="text-blue-500 font-medium hover:underline">LinkedIn</a>
-            <a href="https://github.com/Samuel-BlankAmber" target="_blank" rel="noopener noreferrer" className="text-blue-500 font-medium hover:underline">GitHub</a>
-          </div>
         </div>
-        <div className="flex flex-col items-center text-center">
-          <h2 className="text-4xl font-bold mb-6">Featured Work</h2>
-          <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-xl transition-transform hover:scale-105 hover:shadow-2xl">
-            <img
-              src={cryptoSongLogo}
-              alt="CryptoSong Logo"
-              className="mb-4 drop-shadow-xl w-32 h-32"
-            />
-            <h3 className="font-bold text-2xl text-gray-800">CryptoSong</h3>
-            <p className="text-sm text-gray-500 mb-4 px-4">An app that encrypts data using music.</p>
+        <div className="flex flex-col items-center gap-4">
+          <img
+            src="https://picsum.photos/1"
+            alt="Profile Picture"
+            className="rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-white border-4 w-75 h-75 mb-6"
+          />
+          <div className="flex gap-4 text-2xl font-medium">
             <a
-              href="#"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-400 hover:border-blue-600 hover:text-blue-600 transition duration-300"
             >
-              View Project
+              <FaLinkedin className="text-blue-600" />
+              LinkedIn
+            </a>
+            <a
+              href={GITHUB_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-400 hover:border-gray-900 hover:text-gray-900 transition duration-300"
+            >
+              <FaGithub className="text-gray-900" />
+              GitHub
             </a>
           </div>
+          <a
+            href="#"
+            className="text-2xl font-medium bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+          >
+            Resume
+          </a>
+        </div>
+        <div className="flex-1 space-y-6 text-center">
+          <h1 className="text-4xl font-bold border-b-2 border-gray-300 pb-2">Recent</h1>
+          <div className="space-y-2 text-lg text-gray-700">
+            <p>🥉 Came <span className="font-semibold">3rd</span> at the Global C2C CTF qualifiers</p>
+            <p>🛠️ Ran the <span className="font-semibold">BSides Galway CTF</span></p>
+            <p>🔒 Developed <span className="font-semibold">CryptoSong</span></p>
+            <p>🏆 Came <span className="font-semibold">1st</span> at the 2025 Instil CTF</p>
+            <p>🖌️ Made this site</p>
+          </div>
+          <h1 className="text-4xl font-bold border-b-2 border-gray-300 pb-2">Upcoming</h1>
+          <div className="space-y-2 text-lg text-gray-700">
+            <p>🎯 Playing in the <span className="font-semibold">ZeroDays CTF</span></p>
+            <p>🔥 Competing in the <span className="font-semibold">C2C CTF Finals</span></p>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col items-center text-center mb-6">
-        <h2 className="text-3xl font-bold mb-4">Favourite Technologies</h2>
-        <div className="flex justify-center space-x-6">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-12 h-12"></img>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-12 h-12"></img>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="w-12 h-12"></img>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-12 h-12"></img>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-12 h-12"></img>
-        </div>
-      </div>
+      <button onClick={() => scrollToSection("featured")} className="hidden md:block">
+        <IoIosArrowDown className="text-4xl text-gray-500 animate-bounce cursor-pointer hover:text-blue-500 transition-colors duration-300" />
+      </button>
+    </section>
+  );
+}
+
+function FeaturedSection() {
+  return (
+    <section id="featured" className="h-dvh bg-purple-300 p-10">
+      <h1 className="mt-50">Featured Work</h1>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section id="contact" className="h-dvh bg-green-300 p-10">
+      <h1 className="mt-50">Contact</h1>
     </section>
   );
 }
@@ -203,7 +239,9 @@ export default function Home() {
       <NavBar />
       <IntroSection />
       <SocialMediaLinks />
-      <AboutMeSection />
+      <OverviewSection />
+      <FeaturedSection />
+      <ContactSection />
     </div>
   );
 }

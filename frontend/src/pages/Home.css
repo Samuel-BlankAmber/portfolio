@@ -37,7 +37,7 @@
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
 }
 
-button {
+.styled-button {
   background: transparent;
   color: white;
   border: 2px solid #64ffda;
@@ -51,7 +51,7 @@ button {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
+.styled-button:hover {
   color: #64ffda;
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
@@ -60,4 +60,23 @@ button:hover {
 #aboutme {
   background-image: radial-gradient(#5a975d 0.5px, #b2f5ea 0.5px);
   background-size: 10px 10px;
+}
+
+#overview {
+  position: relative;
+}
+
+#overview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Credit: https://www.magicpattern.design/tools/css-backgrounds */
+  opacity: 0.9;
+  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  z-index: -1;
 }
