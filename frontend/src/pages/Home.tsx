@@ -3,6 +3,7 @@ import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
+import cryptoSongLogo from '../assets/cryptosong.png';
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
@@ -146,7 +147,7 @@ function SocialMediaLinks() {
 
 function AboutMeSection() {
   return (
-    <section id="aboutme" className="flex flex-col items-center justify-center gap-2 min-h-dvh pt-24 px-8 md:px-16 lg:px-32">
+    <section id="aboutme" className="flex flex-col items-center justify-center gap-6 min-h-dvh pt-24 md:pt-18 px-8 md:px-16 lg:px-32">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="flex flex-col items-center text-center">
           <img src="https://picsum.photos/200" alt="Profile Picture" className="rounded-full shadow-lg border-4 mb-4"></img>
@@ -164,21 +165,12 @@ function AboutMeSection() {
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold mb-4">Featured Work</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex flex-col items-center bg-white p-5 rounded-xl shadow-lg w-40">
-              <img src="https://picsum.photos/100" className="rounded-lg shadow-lg mb-2"></img>
-              <h3 className="font-semibold">Project</h3>
-              <p className="text-sm text-gray-600">Placeholder</p>
-              <a href="#" className="text-blue-500 font-medium mt-2 hover:underline">View</a>
-            </div>
-            <div className="flex flex-col items-center bg-white p-5 rounded-xl shadow-lg w-40">
-              <img src="https://picsum.photos/100" className="rounded-lg shadow-lg mb-2"></img>
-              <h3 className="font-semibold">Writeup</h3>
-              <p className="text-sm text-gray-600">Placeholder</p>
-              <a href="#" className="text-blue-500 font-medium mt-2 hover:underline">View</a>
-            </div>
+          <div className="flex flex-col items-center bg-white p-5 rounded-xl shadow-lg">
+            <img src={cryptoSongLogo} alt="CryptoSong Logo" className="mb-2 drop-shadow-lg w-50"></img>
+            <h3 className="font-semibold text-xl">CryptoSong</h3>
+            <p className="text-sm text-gray-600 mb-2">An app that encrypts data using music</p>
+            <a href="#" className="text-blue-500 font-medium hover:underline">View</a>
           </div>
-          <p className="mt-4 text-gray-700">Check out more of my projects and writeups!</p>
         </div>
       </div>
       <div className="flex flex-col items-center text-center mb-6">
