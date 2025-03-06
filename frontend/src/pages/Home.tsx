@@ -10,6 +10,12 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
 
+const navLinks = [
+  { href: "#projects", text: "Projects" },
+  { href: "#writeups", text: "Writeups" },
+  { href: "#contact", text: "Contact" },
+];
+
 function scrollToSection(sectionId: string) {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -32,15 +38,11 @@ function MobileNavBar({ isOpen, toggleMobileNav }: MobileNavBarProps) {
         </button>
       </div>
       <ul className="flex flex-col items-center space-y-6 mt-10">
-        <li>
-          <a href="#aboutme" onClick={toggleMobileNav}>About Me</a>
-        </li>
-        <li>
-          <a href="#projects" onClick={toggleMobileNav}>Projects</a>
-        </li>
-        <li>
-          <a href="#contact" onClick={toggleMobileNav}>Contact</a>
-        </li>
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} onClick={toggleMobileNav}>{link.text}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -64,15 +66,11 @@ function NavBar() {
         </button>
       </div>
       <ul className="hidden md:flex space-x-6">
-        <li>
-          <a href="#aboutme" className="hover:text-blue-500 transition-colors duration-300">About Me</a>
-        </li>
-        <li>
-          <a href="#projects" className="hover:text-blue-500 transition-colors duration-300">Projects</a>
-        </li>
-        <li>
-          <a href="#contact" className="hover:text-blue-500 transition-colors duration-300">Contact</a>
-        </li>
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} className="hover:text-blue-500 transition-colors duration-300">{link.text}</a>
+          </li>
+        ))}
       </ul>
       <MobileNavBar isOpen={isMobileNavOpen} toggleMobileNav={toggleMobileNav} />
     </nav>
@@ -162,7 +160,7 @@ function OverviewSection() {
         </div>
         <div className="flex flex-col items-center gap-4">
           <img
-            src="https://picsum.photos/1"
+            src="https://picsum.photos/900"
             alt="Profile Picture"
             className="rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-white border-4 w-75 h-75 mb-6"
           />
