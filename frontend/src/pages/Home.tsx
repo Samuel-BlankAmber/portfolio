@@ -153,11 +153,11 @@ function OverviewSection() {
       <div className="flex-1 flex flex-col md:flex-row items-center justify-between text-center gap-10">
         <div className="flex-1 flex flex-col">
           <h1 className="text-4xl font-bold mt-12 md:mt-0">Welcome!</h1>
-          <p className="text-xl mt-4">
-            I'm a software engineer from the UK passionate about building (breaking) things and learning new technologies.
+          <p className="text-xl mt-4 text-gray-700">
+            I'm a <span className="font-semibold">software engineer</span> from the <span className="font-semibold">UK</span> passionate about building (breaking) things and learning new technologies.
             <br />
-            Here, you'll find a collection of my projects, writeups, and other fun stuff.
-            I'm always looking for opportunities to grow, so feel free to reach out!
+            Here, you'll find a collection of my <a href="#projects" className="font-semibold text-blue-500 hover:underline">projects</a>, <a href="#writeups" className="font-semibold text-blue-500 hover:underline">writeups</a>, and other fun stuff.
+            I'm always looking for opportunities to grow, so feel free to <a href="#contact" className="font-semibold text-blue-500 hover:underline">reach out</a>!
           </p>
         </div>
         <div className="flex flex-col items-center gap-4">
@@ -194,18 +194,19 @@ function OverviewSection() {
           </a>
         </div>
         <div className="flex-1 space-y-6 text-center">
-          <h1 className="text-4xl font-bold border-b-2 border-gray-300 pb-2">Recent</h1>
+          <h1 className="text-4xl font-bold pb-2">Recent</h1>
           <div className="space-y-2 text-lg text-gray-700">
             <p>🥉 Came <span className="font-semibold">3rd</span> at the Global C2C CTF qualifiers</p>
             <p>🛠️ Ran the <span className="font-semibold">BSides Galway CTF</span></p>
             <p>🔒 Developed <span className="font-semibold">CryptoSong</span></p>
-            <p>🏆 Came <span className="font-semibold">1st</span> at the 2025 Instil CTF</p>
+            <p>🏆 Came <span className="font-semibold">1st</span> in the 2025 Instil CTF</p>
             <p>🖌️ Made this site</p>
           </div>
-          <h1 className="text-4xl font-bold border-b-2 border-gray-300 pb-2">Upcoming</h1>
+          <h1 className="text-4xl font-bold pb-2">Upcoming</h1>
           <div className="space-y-2 text-lg text-gray-700">
             <p>🎯 Playing in the <span className="font-semibold">ZeroDays CTF</span></p>
             <p>🔥 Competing in the <span className="font-semibold">C2C CTF Finals</span></p>
+            <p>💻 Working on (secret) <span className="font-semibold">tooling</span></p>
           </div>
         </div>
       </div>
