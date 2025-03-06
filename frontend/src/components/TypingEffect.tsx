@@ -1,51 +1,47 @@
 import './TypingEffect.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface TypingEffectProps {
-  text: string;
-  delay: number;
-  id: string;
-  parentId: string | null;
-  idCompletionStatus: Record<string, boolean>;
-  setIdCompletionStatus: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
+  texts: string[];
+  delayBetweenChar: number;
+  delayBetweenText: number;
 }
 
-export default function TypingEffect({ text, delay, id, parentId, idCompletionStatus, setIdCompletionStatus }: TypingEffectProps) {
+export default function TypingEffect({ texts, delayBetweenChar, delayBetweenText }: TypingEffectProps) {
   const [displayedText, setDisplayedText] = useState('');
-  const effectStarted = useRef(false);
+  const [charIndex, setCharIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    if (parentId !== null && !idCompletionStatus[parentId]) {
-      return;
-    }
-    if (idCompletionStatus[id]) {
-      setDisplayedText(text);
-      return;
-    }
-    if (effectStarted.current) {
-      return;
-    }
-    effectStarted.current = true;
-    let index = 0;
-    const intervalId = setInterval(() => {
-      setDisplayedText(text.slice(0, index + 1));
-      index++;
-      if (index === text.length) {
-        clearInterval(intervalId);
-        setIdCompletionStatus((prev) => ({ ...prev, [id]: true }));
+    setTimeout(() => {
+      setDisplayedText(texts[currentTextIndex].slice(0, charIndex + (isDeleting ? 0 : 1)));
+      const newIndex = charIndex + (isDeleting ? -1 : 1);
+      if (newIndex < 0 || newIndex > texts[currentTextIndex].length) return;
+      setCharIndex(newIndex);
+      if (newIndex === texts[currentTextIndex].length) {
+        setTimeout(() => {
+          setIsDeleting(true);
+        }, delayBetweenText / 2);
+      } else if (newIndex === 0) {
+        setTimeout(() => {
+          setIsDeleting(false);
+          setCurrentTextIndex((currentTextIndex + 1) % texts.length);
+        }, delayBetweenText / 2);
       }
-    }, delay);
-  }, [idCompletionStatus]);
+    }, delayBetweenChar);
+  }, [charIndex, isDeleting]);
 
   const spans = [];
-  for (let i = 0; i < text.length; i++) {
-    if (i == displayedText.length && (parentId === null || idCompletionStatus[parentId])) {
-      spans.push(<span key={i} className="blinking-cursor">|</span>);
+  for (let i = 0; i < texts[currentTextIndex].length + 1; i++) {
+    if (i == displayedText.length) {
+      spans.push(<span key={i} className="blinking-caret">|</span>);
     } else if (i < displayedText.length) {
       spans.push(<span key={i}>{displayedText[i]}</span>);
     } else {
       spans.push(<span key={i}>{"\u00a0"}</span>);
     }
   }
+
   return spans;
 }

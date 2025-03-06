@@ -78,8 +78,6 @@ function NavBar() {
 }
 
 function IntroSection() {
-  const [idCompletionStatus, setIdCompletionStatus] = useState<Record<string, boolean>>({});
-
   return (
     <section className="flex flex-col items-center justify-center h-dvh text-black">
       <div className="intro-box bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
@@ -97,12 +95,9 @@ function IntroSection() {
         </h1>
         <p className="text-2xl mt-4 font-mono">
           <TypingEffect
-            text="I write code."
-            delay={100}
-            id="i-do-stuff"
-            parentId={null}
-            idCompletionStatus={idCompletionStatus}
-            setIdCompletionStatus={setIdCompletionStatus}
+            texts={["I write code.", "I make websites.", "I play CTFs.", "I love cryptography."]}
+            delayBetweenChar={100}
+            delayBetweenText={5000}
           />
         </p>
       </div>

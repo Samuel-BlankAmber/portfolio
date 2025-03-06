@@ -1,5 +1,5 @@
-.blinking-cursor {
-  animation: blink 0.5s infinite;
+.blinking-caret {
+  animation: blink 0.8s infinite;
 }
 
 @keyframes blink {
