@@ -146,7 +146,7 @@ function SocialMediaLinks() {
 
 function AboutMeSection() {
   return (
-    <section id="aboutme" className="flex flex-col items-center justify-center gap-6 min-h-dvh pt-24 px-8 md:px-16 lg:px-32">
+    <section id="aboutme" className="flex flex-col items-center justify-center gap-2 min-h-dvh pt-24 px-8 md:px-16 lg:px-32">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="flex flex-col items-center text-center">
           <img src="https://picsum.photos/200" alt="Profile Picture" className="rounded-full shadow-lg border-4 mb-4"></img>
@@ -157,6 +157,10 @@ function AboutMeSection() {
             Here, you'll find a collection of my projects, writeups, and other fun stuff.
             I'm always looking for opportunities to grow, so feel free to reach out!
           </p>
+          <div className="flex space-x-4">
+            <a href="https://www.linkedin.com/in/samuel-bhuiyan-532826248" target="_blank" rel="noopener noreferrer" className="text-blue-500 font-medium hover:underline">LinkedIn</a>
+            <a href="https://github.com/Samuel-BlankAmber" target="_blank" rel="noopener noreferrer" className="text-blue-500 font-medium hover:underline">GitHub</a>
+          </div>
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold mb-4">Featured Work</h2>
