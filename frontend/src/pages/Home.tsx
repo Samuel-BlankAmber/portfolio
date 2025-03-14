@@ -52,7 +52,7 @@ const featuredProjects = [
     imgSrc: charsetGenerator,
     imgAlt: "Charset Generator",
     title: "Charset Generator",
-    description: "A PyPI package for BF attack charsets, using freq. analysis and OpenAI.",
+    description: "A PyPI package for bruteforce attacks using freq. analysis and the OpenAI API.",
     repoUrl: CHARSET_GENERATOR_REPO_URL,
   },
 ];
@@ -254,16 +254,18 @@ function OverviewSection() {
 function FeaturedSection() {
   return (
     <section id="featured" className="min-h-dvh">
-      <div className="flex flex-col min-h-dvh h-full p-10 pb-5 md:pt-20 md:px-20">
-        <h1 className="text-4xl font-bold text-center mb-5">Featured Projects</h1>
+      <div className="flex flex-col min-h-dvh pt-15 px-10 pb-5 md:pt-20 md:px-20">
+        <h1 className="text-4xl font-bold text-center mb-10 mb:mb-5">Featured Projects</h1>
         <div className="flex-1 grid md:grid-cols-2 gap-5 mb-10">
-          {featuredProjects.map((project, _index) => (
-            <div className="flex-1 shadow-lg relative border-white border-4 rounded-xl">
-              <img
-                src={project.imgSrc}
-                alt={project.imgAlt}
-                className="md:absolute w-full h-full object-cover rounded-lg"
-              />
+          {featuredProjects.map((project, index) => (
+            <div key={index} className="shadow-lg relative border-white border-4 rounded-xl">
+              <div className="w-full h-64 md:h-full">
+                <img
+                  src={project.imgSrc}
+                  alt={project.imgAlt}
+                  className="md:absolute w-full h-full object-cover rounded-lg"
+                />
+              </div>
               <div className="absolute inset-0 flex flex-col justify-center text-center bg-black/70 rounded-lg p-6">
                 <h2 className="text-white text-4xl font-bold drop-shadow-md mb-3">{project.title}</h2>
                 <p className="text-white text-lg drop-shadow-md">{project.description}</p>
