@@ -12,6 +12,7 @@ import libraryOfEmoji from '../assets/library-of-emoji.png';
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
+const EMAIL = "me@samuelb.dev";
 
 const CRYPTOSONG_REPO_URL = "https://github.com/Samuel-BlankAmber/CryptoSong";
 const ECB_PENGUIN_REPO_URL = "https://github.com/Samuel-BlankAmber/ecb-penguin-go";
@@ -293,8 +294,20 @@ function FeaturedSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="h-dvh bg-green-300 p-10">
-      <h1 className="mt-50">Contact</h1>
+    <section id="contact" className="min-h-dvh flex flex-col items-center justify-center">
+      <h1 className="text-5xl font-bold mb-5">Contact</h1>
+      <h2 className="text-4xl">
+        You can email me at&nbsp;
+        <a href={`mailto:${EMAIL}`} className="font-semibold text-blue-500 hover:underline">{EMAIL}</a>
+        .
+      </h2>
+      <p className="text-2xl mt-5 text-center">
+        Alternatively, you can reach out to me on&nbsp;
+        <a href={LINKEDIN_URL} className="font-semibold text-blue-500 hover:underline">LinkedIn</a>
+        &nbsp;or&nbsp;
+        <a href={GITHUB_PROFILE_URL} className="font-semibold text-blue-500 hover:underline">GitHub</a>
+        .
+      </p>
     </section>
   );
 }
