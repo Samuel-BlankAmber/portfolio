@@ -1,9 +1,13 @@
 import { useState } from "react";
+
 import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
+
 import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
+
+import mePhoto from "../assets/me.png";
 import cryptoSongLogo from '../assets/cryptosong.png';
 import ecbTux from '../assets/ecb_tux.png';
 import charsetGenerator from '../assets/charset-generator.png';
@@ -197,7 +201,8 @@ function OverviewSection() {
         </div>
         <div className="flex flex-col items-center gap-4">
           <img
-            src="https://picsum.photos/900"
+            id="selfie"
+            src={mePhoto}
             alt="Profile Picture"
             className="rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.6)] border-white border-4 w-75 h-75 mb-6"
           />
