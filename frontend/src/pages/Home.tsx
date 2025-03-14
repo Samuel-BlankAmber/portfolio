@@ -6,6 +6,8 @@ import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import cryptoSongLogo from '../assets/cryptosong.png';
 import ecbTux from '../assets/ecb_tux.png';
+import charsetGenerator from '../assets/charset-generator.png';
+import libraryOfEmoji from '../assets/library-of-emoji.png';
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
@@ -13,11 +15,46 @@ const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
 
 const CRYPTOSONG_REPO_URL = "https://github.com/Samuel-BlankAmber/CryptoSong";
 const ECB_PENGUIN_REPO_URL = "https://github.com/Samuel-BlankAmber/ecb-penguin-go";
+const CHARSET_GENERATOR_REPO_URL = "https://github.com/Samuel-BlankAmber/charset-generator";
+const LIBRARY_OF_EMOJI_REPO_URL = "https://github.com/Samuel-BlankAmber/library-of-emoji";
+const LIBRARY_OF_EMOJI_LIVE_URL = "https://samuel-blankamber.github.io/library-of-emoji";
 
 const navLinks = [
   { href: "#projects", text: "Projects" },
   { href: "#writeups", text: "Writeups" },
   { href: "#contact", text: "Contact" },
+];
+
+const featuredProjects = [
+  {
+    imgSrc: cryptoSongLogo,
+    imgAlt: "CryptoSong",
+    title: "CryptoSong",
+    description: "A React Native app that encrypts messages using music.",
+    repoUrl: CRYPTOSONG_REPO_URL,
+  },
+  {
+    imgSrc: libraryOfEmoji,
+    imgAlt: "Library of Emoji",
+    title: "Library of Emoji",
+    description: "A Library of Babel spin-off for Emojis.",
+    repoUrl: LIBRARY_OF_EMOJI_REPO_URL,
+    liveUrl: LIBRARY_OF_EMOJI_LIVE_URL,
+  },
+  {
+    imgSrc: ecbTux,
+    imgAlt: "ECB Tux",
+    title: "Go ECB Penguin",
+    description: "An implementation of the classic ECB Penguin, written in Golang.",
+    repoUrl: ECB_PENGUIN_REPO_URL,
+  },
+  {
+    imgSrc: charsetGenerator,
+    imgAlt: "Charset Generator",
+    title: "Charset Generator",
+    description: "A PyPI package for BF attack charsets, using freq. analysis and OpenAI.",
+    repoUrl: CHARSET_GENERATOR_REPO_URL,
+  },
 ];
 
 function scrollToSection(sectionId: string) {
@@ -219,78 +256,28 @@ function FeaturedSection() {
     <section id="featured" className="min-h-dvh">
       <div className="flex flex-col min-h-dvh h-full p-10 pb-5 md:pt-20 md:px-20">
         <h1 className="text-4xl font-bold text-center mb-5">Featured Projects</h1>
-        <div className="flex-1 flex flex-col md:flex-row gap-5 mb-10">
-          <div className="flex-1 shadow-lg relative border-white border-4 rounded-xl">
-            <img
-              src={cryptoSongLogo}
-              alt="CryptoSong"
-              className="md:absolute w-full h-full object-cover rounded-lg"
-            />
-            <div className="absolute inset-0 flex flex-col justify-center text-center bg-black/70 rounded-lg p-6">
-              <h2 className="text-white text-4xl font-bold drop-shadow-md mb-3">CryptoSong</h2>
-              <p className="text-white text-lg drop-shadow-md">
-                A React Native app that encrypts messages using music.
-              </p>
-              <a
-                href={CRYPTOSONG_REPO_URL}
-                className="mt-3 text-blue-400 hover:text-blue-300 hover:underline font-semibold text-lg drop-shadow-md"
-                target="_blank"
-                rel="noopener"
-              >
-                View on GitHub
-              </a>
+        <div className="flex-1 grid md:grid-cols-2 gap-5 mb-10">
+          {featuredProjects.map((project, _index) => (
+            <div className="flex-1 shadow-lg relative border-white border-4 rounded-xl">
+              <img
+                src={project.imgSrc}
+                alt={project.imgAlt}
+                className="md:absolute w-full h-full object-cover rounded-lg"
+              />
+              <div className="absolute inset-0 flex flex-col justify-center text-center bg-black/70 rounded-lg p-6">
+                <h2 className="text-white text-4xl font-bold drop-shadow-md mb-3">{project.title}</h2>
+                <p className="text-white text-lg drop-shadow-md">{project.description}</p>
+                <a
+                  href={project.liveUrl || project.repoUrl}
+                  className="mt-3 text-blue-400 hover:text-blue-300 hover:underline font-semibold text-lg drop-shadow-md"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {project.liveUrl ? "View Live" : "View on GitHub"}
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="flex-1 shadow-lg relative border-white border-4 rounded-xl">
-            <img
-              src={ecbTux}
-              alt="ECB Tux"
-              className="md:absolute w-full h-full object-cover rounded-lg"
-            />
-            <div className="absolute inset-0 flex flex-col justify-center text-center bg-black/70 rounded-lg p-6">
-              <h2 className="text-white text-4xl font-bold drop-shadow-md mb-3">Go ECB Penguin</h2>
-              <p className="text-white text-lg drop-shadow-md">
-                An implementation of the classic ECB Penguin, written in Golang.
-              </p>
-              <a
-                href={ECB_PENGUIN_REPO_URL}
-                className="mt-3 text-blue-400 hover:text-blue-300 hover:underline font-semibold text-lg drop-shadow-md"
-                target="_blank"
-                rel="noopener"
-              >
-                View on GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row gap-5 mb-10">
-          <div className="flex-1 rounded-lg shadow-lg bg-white p-4 flex flex-col justify-between">
-            <h2 className="text-2xl font-bold mb-2">Lorem ipsum</h2>
-            <p className="text-gray-700 mb-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" className="text-blue-500 hover:underline self-start">
-              Read more
-            </a>
-          </div>
-          <div className="flex-1 rounded-lg shadow-lg bg-white p-4 flex flex-col justify-between">
-            <h2 className="text-2xl font-bold mb-2">Lorem ipsum</h2>
-            <p className="text-gray-700 mb-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" className="text-blue-500 hover:underline self-start">
-              Read more
-            </a>
-          </div>
-          <div className="flex-1 rounded-lg shadow-lg bg-white p-4 flex flex-col justify-between">
-            <h2 className="text-2xl font-bold mb-2">Lorem ipsum</h2>
-            <p className="text-gray-700 mb-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" className="text-blue-500 hover:underline self-start">
-              Read more
-            </a>
-          </div>
+          ))}
         </div>
         <div className="hidden md:flex justify-center">
           <button onClick={() => scrollToSection("contact")}>
