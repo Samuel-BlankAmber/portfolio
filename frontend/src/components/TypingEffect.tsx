@@ -4,33 +4,40 @@ import { useEffect, useState } from 'react';
 export interface TypingEffectProps {
   texts: string[];
   delayBetweenChar: number;
-  delayBetweenText: number;
+  delayBetweenStateChange: number;
 }
 
-export default function TypingEffect({ texts, delayBetweenChar, delayBetweenText }: TypingEffectProps) {
+enum State {
+  TYPING,
+  DELETING,
+}
+
+export default function TypingEffect({ texts, delayBetweenChar, delayBetweenStateChange }: TypingEffectProps) {
   const [displayedText, setDisplayedText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [state, setState] = useState(State.TYPING);
 
   useEffect(() => {
     setTimeout(() => {
-      setDisplayedText(texts[currentTextIndex].slice(0, charIndex + (isDeleting ? 0 : 1)));
-      const newIndex = charIndex + (isDeleting ? -1 : 1);
+      setDisplayedText(texts[currentTextIndex].slice(0, charIndex + (state == State.TYPING ? 1 : 0)));
+      const newIndex = charIndex + (state == State.TYPING ? 1 : -1);
       if (newIndex < 0 || newIndex > texts[currentTextIndex].length) return;
+
       setCharIndex(newIndex);
+
       if (newIndex === texts[currentTextIndex].length) {
         setTimeout(() => {
-          setIsDeleting(true);
-        }, delayBetweenText / 2);
+          setState(State.DELETING);
+        }, delayBetweenStateChange);
       } else if (newIndex === 0) {
         setTimeout(() => {
-          setIsDeleting(false);
+          setState(State.TYPING);
           setCurrentTextIndex((currentTextIndex + 1) % texts.length);
-        }, delayBetweenText / 2);
+        }, delayBetweenStateChange);
       }
     }, delayBetweenChar);
-  }, [charIndex, isDeleting]);
+  }, [charIndex, state]);
 
   const spans = [];
   for (let i = 0; i < texts[currentTextIndex].length + 1; i++) {

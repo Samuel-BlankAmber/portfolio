@@ -30,6 +30,16 @@ const navLinks = [
   { href: "#contact", text: "Contact" },
 ];
 
+const introSectionTypingText = [
+  "I write code.",
+  "I make websites.",
+  "I play CTFs.",
+  "I love cryptography.",
+];
+
+const introSectionTypingTextDelayBetweenChar = 100;
+const introSectionTypingTextDelayBetweenStateChange = 2500;
+
 const featuredProjects = [
   {
     imgSrc: cryptoSongLogo,
@@ -139,11 +149,11 @@ function IntroSection() {
           </a>
           .
         </h1>
-        <p className="text-2xl mt-4 font-mono">
+        <p className="text-2xl mt-4 font-mono text-left">
           <TypingEffect
-            texts={["I write code.", "I make websites.", "I play CTFs.", "I love cryptography."]}
-            delayBetweenChar={100}
-            delayBetweenText={5000}
+            texts={introSectionTypingText}
+            delayBetweenChar={introSectionTypingTextDelayBetweenChar}
+            delayBetweenStateChange={introSectionTypingTextDelayBetweenStateChange}
           />
         </p>
       </div>
