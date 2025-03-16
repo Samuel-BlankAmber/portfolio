@@ -31,7 +31,7 @@ function MobileNavBar({ isOpen, toggleMobileNav }: MobileNavBarProps) {
   );
 }
 
-export function NavBar() {
+export default function NavBar() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   function toggleMobileNav() {
