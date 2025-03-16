@@ -113,7 +113,7 @@ function SocialMediaLinks() {
   return (
     <div className="absolute bottom-0 left-0 m-4 flex space-x-4">
       <a
-        href="https://www.linkedin.com/in/samuel-bhuiyan-532826248/"
+        href={LINKEDIN_URL}
         target="_blank"
         rel="noopener"
       >
