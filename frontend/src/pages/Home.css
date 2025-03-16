@@ -58,60 +58,15 @@
 }
 
 #overview {
-  position: relative;
-}
-
-#overview::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Credit: https://www.magicpattern.design/tools/css-backgrounds */
-  opacity: 0.8;
-  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #c2f9f6 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  z-index: -1;
+  background-color: rgba(194, 249, 246, 0.8);
 }
 
 #featured {
-  position: relative;
-}
-
-#featured::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Credit: https://www.magicpattern.design/tools/css-backgrounds */
-  opacity: 0.8;
-  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #c2d6f9 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  z-index: -1;
+  background-color: rgba(194, 214, 249, 0.8);
 }
 
 #contact {
-  position: relative;
-}
-
-#contact::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Credit: https://www.magicpattern.design/tools/css-backgrounds */
-  opacity: 0.8;
-  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #99efae 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  z-index: -1;
+  background-color: rgba(153, 239, 174, 0.8);
 }
 
 #selfie {
