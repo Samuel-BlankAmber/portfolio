@@ -44,7 +44,7 @@ export default function TrianglifyBackground() {
       ref={canvasRef}
       style={{
         position: 'fixed',
-        zIndex: -1,
+        zIndex: -2,
       }}
     />
   );

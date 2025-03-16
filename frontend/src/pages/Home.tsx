@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
 import TypingEffect from "../components/TypingEffect";
 
-import { FaBars, FaTimes, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
 import mePhoto from "../assets/me.png";
@@ -12,6 +10,7 @@ import cryptoSongLogo from '../assets/cryptosong.png';
 import ecbTux from '../assets/ecb_tux.png';
 import charsetGenerator from '../assets/charset-generator.png';
 import libraryOfEmoji from '../assets/library-of-emoji.png';
+import { NavBar } from "../components/NavBar";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
@@ -78,59 +77,6 @@ function scrollToSection(sectionId: string) {
     element.scrollIntoView({ behavior: "smooth" });
     history.pushState(null, "", `#${sectionId}`);
   }
-}
-
-interface MobileNavBarProps {
-  isOpen: boolean;
-  toggleMobileNav: () => void;
-}
-
-function MobileNavBar({ isOpen, toggleMobileNav }: MobileNavBarProps) {
-  return (
-    <div className={`mobile-navbar fixed top-0 right-0 w-screen h-screen z-50 transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-      <div className="flex justify-end p-4">
-        <button onClick={toggleMobileNav} className="text-2xl">
-          <FaTimes />
-        </button>
-      </div>
-      <ul className="flex flex-col items-center space-y-6 mt-10">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <a href={link.href} onClick={toggleMobileNav}>{link.text}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function NavBar() {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
-  function toggleMobileNav() {
-    setIsMobileNavOpen(!isMobileNavOpen);
-  }
-
-  return (
-    <nav className="navbar fixed top-0 left-0 w-full p-4 flex justify-between items-center shadow-md z-50">
-      <div className="flex items-center space-x-2">
-        <a href="#" className="logo text-2xl font-bold">SB</a>
-      </div>
-      <div className="md:hidden">
-        <button onClick={toggleMobileNav} className="text-2xl">
-          <FaBars />
-        </button>
-      </div>
-      <ul className="hidden md:flex space-x-6">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <a href={link.href} className="hover:text-blue-500 transition-colors duration-300">{link.text}</a>
-          </li>
-        ))}
-      </ul>
-      <MobileNavBar isOpen={isMobileNavOpen} toggleMobileNav={toggleMobileNav} />
-    </nav>
-  );
 }
 
 function IntroSection() {
@@ -325,7 +271,7 @@ export default function Home() {
   return (
     <div>
       <TrianglifyBackground />
-      <NavBar />
+      <NavBar navLinks={navLinks} />
       <IntroSection />
       <SocialMediaLinks />
       <OverviewSection />
