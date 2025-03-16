@@ -1,5 +1,6 @@
 import "./Home.css";
 import TrianglifyBackground from "../components/TrianglifyBackground";
+import NavBar from "../components/NavBar";
 import TypingEffect from "../components/TypingEffect";
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
@@ -10,24 +11,11 @@ import cryptoSongLogo from '../assets/cryptosong.png';
 import ecbTux from '../assets/ecb_tux.png';
 import charsetGenerator from '../assets/charset-generator.png';
 import libraryOfEmoji from '../assets/library-of-emoji.png';
-import { NavBar } from "../components/NavBar";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
 const EMAIL = "me@samuelb.dev";
-
-const CRYPTOSONG_REPO_URL = "https://github.com/Samuel-BlankAmber/CryptoSong";
-const ECB_PENGUIN_REPO_URL = "https://github.com/Samuel-BlankAmber/ecb-penguin-go";
-const CHARSET_GENERATOR_REPO_URL = "https://github.com/Samuel-BlankAmber/charset-generator";
-const LIBRARY_OF_EMOJI_REPO_URL = "https://github.com/Samuel-BlankAmber/library-of-emoji";
-const LIBRARY_OF_EMOJI_LIVE_URL = "https://samuel-blankamber.github.io/library-of-emoji";
-
-const navLinks = [
-  { href: "#projects", text: "Projects" },
-  { href: "#writeups", text: "Writeups" },
-  { href: "#contact", text: "Contact" },
-];
 
 const introSectionTypingText = [
   "I write code.",
@@ -45,29 +33,29 @@ const featuredProjects = [
     imgAlt: "CryptoSong",
     title: "CryptoSong",
     description: "A React Native app that encrypts messages using music.",
-    repoUrl: CRYPTOSONG_REPO_URL,
+    repoUrl: "https://github.com/Samuel-BlankAmber/CryptoSong",
   },
   {
     imgSrc: libraryOfEmoji,
     imgAlt: "Library of Emoji",
     title: "Library of Emoji",
     description: "A Library of Babel spin-off for Emojis.",
-    repoUrl: LIBRARY_OF_EMOJI_REPO_URL,
-    liveUrl: LIBRARY_OF_EMOJI_LIVE_URL,
+    repoUrl: "https://github.com/Samuel-BlankAmber/library-of-emoji",
+    liveUrl: "https://samuel-blankamber.github.io/library-of-emoji",
   },
   {
     imgSrc: ecbTux,
     imgAlt: "ECB Tux",
     title: "Go ECB Penguin",
     description: "An implementation of the classic ECB Penguin, written in Golang.",
-    repoUrl: ECB_PENGUIN_REPO_URL,
+    repoUrl: "https://github.com/Samuel-BlankAmber/ecb-penguin-go",
   },
   {
     imgSrc: charsetGenerator,
     imgAlt: "Charset Generator",
     title: "Charset Generator",
     description: "A PyPI package for bruteforce attacks using freq. analysis and the OpenAI API.",
-    repoUrl: CHARSET_GENERATOR_REPO_URL,
+    repoUrl: "https://github.com/Samuel-BlankAmber/charset-generator",
   },
 ];
 
@@ -151,7 +139,7 @@ function OverviewSection() {
           <p className="text-xl mt-4 text-gray-700">
             I'm a <span className="font-semibold">software engineer</span> from the <span className="font-semibold">UK</span> passionate about building (breaking) things and learning new technologies.
             <br />
-            Here, you'll find a collection of my <a href="#projects" className="font-semibold text-blue-500 hover:underline">projects</a>, <a href="#writeups" className="font-semibold text-blue-500 hover:underline">writeups</a>, and other fun stuff.
+            Here, you'll find a collection of my <a href="/projects" className="font-semibold text-blue-500 hover:underline">projects</a>, <a href="#writeups" className="font-semibold text-blue-500 hover:underline">writeups</a>, and other fun stuff.
             I'm always looking for opportunities to grow, so feel free to <a href="#contact" className="font-semibold text-blue-500 hover:underline">reach out</a>!
           </p>
         </div>
@@ -166,7 +154,7 @@ function OverviewSection() {
             <a
               href={LINKEDIN_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-400 hover:border-blue-600 hover:text-blue-600 transition duration-300"
             >
               <FaLinkedin className="text-blue-600" />
@@ -175,7 +163,7 @@ function OverviewSection() {
             <a
               href={GITHUB_PROFILE_URL}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-400 hover:border-gray-900 hover:text-gray-900 transition duration-300"
             >
               <FaGithub className="text-gray-900" />
@@ -271,7 +259,7 @@ export default function Home() {
   return (
     <div>
       <TrianglifyBackground />
-      <NavBar navLinks={navLinks} />
+      <NavBar />
       <IntroSection />
       <SocialMediaLinks />
       <OverviewSection />
