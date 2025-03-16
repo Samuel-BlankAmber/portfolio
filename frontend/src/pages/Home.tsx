@@ -12,7 +12,7 @@ import charsetGenerator from '../assets/charset-generator.png';
 import libraryOfEmoji from '../assets/library-of-emoji.png';
 import { NavBar } from "../components/NavBar";
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan-532826248";
+const LINKEDIN_URL = "https://www.linkedin.com/in/samuel-bhuiyan";
 const GITHUB_PROFILE_URL = "https://github.com/Samuel-BlankAmber";
 const GITHUB_REPO_URL = "https://github.com/Samuel-BlankAmber/portfolio";
 const EMAIL = "me@samuelb.dev";
