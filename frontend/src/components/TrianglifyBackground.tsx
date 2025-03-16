@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
-import trianglify from 'trianglify';
+// @ts-ignore - Refer to: https://github.com/qrohlf/trianglify/issues/158
+import trianglify from 'trianglify/dist/trianglify.bundle.js';
+
 
 const palette = {
   YlGn: ['#ffffe5', '#f7fcb9', '#d9f0a3', '#addd8e', '#78c679', '#41ab5d', '#238443', '#006837', '#004529'],
