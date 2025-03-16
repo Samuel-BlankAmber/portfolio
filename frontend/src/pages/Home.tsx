@@ -226,12 +226,6 @@ function OverviewSection() {
               GitHub
             </a>
           </div>
-          <a
-            href="#"
-            className="text-2xl font-medium bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
-          >
-            Resume
-          </a>
         </div>
         <div className="flex-1 space-y-6 text-center">
           <h1 className="text-4xl font-bold pb-2">Recent</h1>
