@@ -27,6 +27,17 @@ const introSectionTypingText = [
 const introSectionTypingTextDelayBetweenChar = 100;
 const introSectionTypingTextDelayBetweenStateChange = 2500;
 
+const recentWork = [
+  "🥉 Came *3rd* at the Global C2C CTF qualifiers",
+  "🛠️ Ran the *BSides Galway CTF*",
+  "🏆 Came *1st* in the 2025 Instil CTF",
+  "🥈 Came *2nd* in the 2025 ZeroDays College CTF",
+];
+
+const upcomingWork = [
+  "🔥 Competing in the *C2C CTF Finals*",
+];
+
 const featuredProjects = [
   {
     imgSrc: cryptoSongLogo,
@@ -130,6 +141,23 @@ function SocialMediaLinks() {
   );
 }
 
+function listToMarkdownTags(list: string[]) {
+  return list.map((item, index) => {
+    const parts = item.split("*");
+    return (
+      <p key={index}>
+        {parts.map((part, index) => {
+          if (index % 2 === 0) {
+            return part;
+          } else {
+            return <span key={index} className="font-semibold">{part}</span>;
+          }
+        })}
+      </p>
+    )
+  });
+}
+
 function OverviewSection() {
   return (
     <section id="overview" className="flex flex-col items-center min-h-dvh p-10">
@@ -174,17 +202,11 @@ function OverviewSection() {
         <div className="flex-1 space-y-6 text-center">
           <h1 className="text-4xl font-bold pb-2">Recent</h1>
           <div className="space-y-2 text-lg text-gray-700">
-            <p>🥉 Came <span className="font-semibold">3rd</span> at the Global C2C CTF qualifiers</p>
-            <p>🛠️ Ran the <span className="font-semibold">BSides Galway CTF</span></p>
-            <p>🔒 Developed <span className="font-semibold">CryptoSong</span></p>
-            <p>🏆 Came <span className="font-semibold">1st</span> in the 2025 Instil CTF</p>
-            <p>🖌️ Made this site</p>
+            {listToMarkdownTags(recentWork)}
           </div>
           <h1 className="text-4xl font-bold pb-2">Upcoming</h1>
           <div className="space-y-2 text-lg text-gray-700">
-            <p>🎯 Playing in the <span className="font-semibold">ZeroDays CTF</span></p>
-            <p>🔥 Competing in the <span className="font-semibold">C2C CTF Finals</span></p>
-            <p>💻 Working on (secret) <span className="font-semibold">tooling</span></p>
+            {listToMarkdownTags(upcomingWork)}
           </div>
         </div>
       </div>
