@@ -237,14 +237,14 @@ function FeaturedSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="min-h-dvh flex flex-col items-center justify-center">
+    <section id="contact" className="min-h-dvh flex flex-col items-center justify-center text-center p-10">
       <h1 className="text-5xl font-bold mb-5">Contact</h1>
       <h2 className="text-4xl">
         You can email me at&nbsp;
         <a href={`mailto:${EMAIL}`} className="font-semibold text-blue-500 hover:underline">{EMAIL}</a>
         .
       </h2>
-      <p className="text-2xl mt-5 text-center">
+      <p className="text-2xl mt-5">
         Alternatively, you can reach out to me on&nbsp;
         <a href={LINKEDIN_URL} className="font-semibold text-blue-500 hover:underline">LinkedIn</a>
         &nbsp;or&nbsp;
