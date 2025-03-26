@@ -40,23 +40,19 @@ const projects = [
     imgSrc: "https://placehold.co/10",
     imgAlt: "More coming soon",
     title: "More coming soon...",
-    description: "I hope.",
+    description: "Check back later!",
     repoUrl: "https://example.com",
   },
 ];
-
-for (let i = 0; i < 20; i++) {
-  projects.push(projects.slice(-1)[0]);
-}
 
 function ProjectsGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {projects.map((project) => (
-        <div className="bg-gray-100 p-6 rounded-2xl shadow-md">
-          <h2 className="text-xl font-bold">{project.title}</h2>
+        <div className="bg-gray-900 p-6 rounded-2xl shadow-md border-white border-4">
+          <h2 className="text-xl text-white font-bold">{project.title}</h2>
           <img src={project.imgSrc} alt={project.imgAlt} className="w-full h-48 object-cover rounded-2xl mt-4" />
-          <p className="text-gray-600 mt-2">{project.description}</p>
+          <p className="text-gray-100 mt-2">{project.description}</p>
           <div className="mt-4">
             <a href={project.repoUrl} className="text-blue-500 hover:underline" target="_blank" rel="noopener">GitHub</a>
             {project.liveUrl && (
