@@ -29,14 +29,12 @@ const introSectionTypingTextDelayBetweenStateChange = 2500;
 
 const recentWork = [
   "🥈 Came *2nd* at the Global C2C CTF in Boston",
-  "🛠️ Ran the *BSides Galway CTF*",
-  "🏆 Came *1st* in the 2025 Instil CTF",
-  "🥈 Came *2nd* in the 2025 ZeroDays College CTF",
+  "🛠️ Ran the *ZeroDays CTF* in Dublin",
+  "🏆 Came *1st* in the WorldSkills Ireland 2026 Cybersecurity Finals",
 ];
 
 const upcomingWork = [
-  "🔥 Competing in the *WorldSkills UK Finals*",
-  "🚀 Competing in *ENISA's ECSC* in Poland",
+  "🚀 Competing in *ENISA's ECSC* in Germany",
 ];
 
 const featuredProjects = [
